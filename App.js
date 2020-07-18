@@ -6,7 +6,9 @@ import Register from './components/Register'
 import Main from './components/Main'
 import {createStackNavigator} from "@react-navigation/stack"
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
-
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import Search from './components/Search';
+import {Icon} from 'react-native-elements'
 const Stack = createStackNavigator();
 
 //used to customize the header
@@ -34,7 +36,9 @@ function App(){
         <Stack.Screen name="registerScreen" component={Register}
         options={{...myOptions, headerShown: false, gestureEnabled: false, headerStyle: {backgroundColor: "#000", shadowColor: 'transparent'}}}/>
         <Stack.Screen name="mainScreen" component={Main}
-        options={{...myOptions, headerShown: false, gestureEnabled: false, headerStyle: {backgroundColor: "#000", shadowColor: 'transparent'}}}/>
+        options={{...myOptions, headerLeft: false, headerShown: false, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        <Stack.Screen name="searchScreen" component={Search}
+        options={{...myOptions, headerLeft: true, headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
       </Stack.Navigator>
       
     </View>

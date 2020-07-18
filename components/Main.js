@@ -1,35 +1,39 @@
 import React, {Component} from 'react';
 import {FlatList, Platform, StyleSheet, ActivityIndicator, Text, View, Alert, TextInput } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import * as firebase from "firebase"
-import FireBase from './config/FireBase';
-import {SearchBar} from 'react-native-elements'
+import {Header, Right, Left, Icon} from 'native-base'
+
 
 export default class Main extends Component {
     constructor(props) {
         super(props);
         //setting default state
-        this.state = { isLoading: true, search: '' };
+        this.state = { isLoading: true, search: ''};
         this.arrayholder = [];
+
       }
       componentDidMount() {
-        return fetch('http://webknox.com/api/recipes/search?query=${this.state.search}&apiKey=c9f71a6be7174d85ae404ae2a9cb7e39')
-          .then(response => response.json())
-          .then(responseJson => {
-            this.setState(
-              {
-                isLoading: false,
-                dataSource: responseJson.results,
-              },
-              function() {
-                this.arrayholder = responseJson.results;
-              }
-            );
-          })
-          .catch(error => {
-            console.error(error);
-          });
+            return fetch('http://webknox.com/api/recipes/search?number=10000&apiKey=c9f71a6be7174d85ae404ae2a9cb7e39')
+            .then(response => response.json())
+            .then(responseJson => {
+              this.setState(
+                {
+                  isLoading: false,
+                  dataSource: responseJson.results,
+                },
+                function() {
+                  this.arrayholder = responseJson.results
+                }
+              );
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        
       }
+
+      updateSearch = (search) => {
+        this.setState({ search });
+      };
       search = text => {
         console.log(text);
       };
@@ -41,7 +45,7 @@ export default class Main extends Component {
         const newData = this.arrayholder.filter(function(item) {
           //applying filter for the inserted text in search bar
           const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
-          const textData = text.toUpperCase();
+          const textData = text
           return itemData.indexOf(textData) > -1;
         });
         this.setState({
@@ -74,24 +78,19 @@ export default class Main extends Component {
         }
         return (
           //ListView to show with textinput used as search bar
-          <View style={styles.viewStyle}>
-            <SearchBar
-              round
-              searchIcon={{ size: 24 }}
-              onChangeText={text => this.SearchFilterFunction(text)}
-              onClear={text => this.SearchFilterFunction('')}
-              cancelButtonTitle="cancel"
-              placeholder="Type Here..."
-              lightTheme="true"
-              value={this.state.search}
-              />
+          <View style={styles.container}>
+              <Header style={{backgroundColor: '#fff'}}>
+                  <Left>
+                      <Icon name="search" onPress={() => this.props.navigation.navigate("searchScreen")}/>
+                  </Left>
+              </Header>
               <FlatList
               data={this.state.dataSource}
               ItemSeparatorComponent={this.ListViewItemSeparator}
               //Item Separator View
               renderItem={({ item }) => (
                 // Single Comes here which will be repeatative for the FlatListItems
-                <Text style={styles.textStyle}>{item.title}</Text>
+              <Text style={styles.textStyle}>{item.title} {'\n'} {'ready in'} {item.readyInMinutes} {'mins'}</Text>
               )}
               enableEmptySections={true}
               style={{ marginTop: 10 }}
@@ -106,8 +105,8 @@ export default class Main extends Component {
       container: {
         justifyContent: 'center',
         flex: 1,
-        backgroundColor:'#d3d4d6',
-        marginTop: Platform.OS == 'ios'? 30 : 0
+        backgroundColor:'#fff',
+        marginTop: 0
       },
       textStyle: {
         padding: 10,
