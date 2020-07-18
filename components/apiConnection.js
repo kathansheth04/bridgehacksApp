@@ -1,9 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {Component, useState, useEffect} from 'react';
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 
-export default function App() {
+export default class apiConnection extends Components {
+    constructor(props) {
+        super(props);
+    }
 
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -30,12 +32,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
