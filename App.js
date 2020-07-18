@@ -1,41 +1,58 @@
-import { StatusBar } from 'expo-status-bar';
-import React, {Component, useState, useEffect} from 'react';
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
-import { ActivityIndicator } from 'react-native-paper';
+import React from 'react';
+import {StyleSheet, View, Image, Text } from 'react-native';
+import Login from './components/Login'
+import Intro from './components/Intro'
+import Register from './components/Register'
+import Main from './components/Main'
+import {createStackNavigator} from "@react-navigation/stack"
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
-export default function App() {
+const Stack = createStackNavigator();
 
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+//used to customize the header
+const myOptions = {
+  title: " ",
+  headerStyle:{
+    shadowColor: 'transparent',
+    shadowOffset: {
+      height: 0,
+    },
+  }
+}
 
-  useEffect(() => {
-    fetch('http://webknox.com/api/recipes/search?query=tomato soup&apiKey=c9f71a6be7174d85ae404ae2a9cb7e39')
-      .then((response) => response.json())
-      .then((json) => setData(json.results))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
-
-  return (
-    <View style={{ flex: 1, padding: 24 }}>
-      {isLoading ? <ActivityIndicator/> : (
-        <FlatList
-          data={data}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => (
-          <Text>{item.title}, {item.readyInMinutes}, {item.sourceUrl}</Text>
-          )}
-        />
-      )}
+//Consists of Stack Navigator with all the screens and tab navigator nested inside
+function App(){
+  return(
+    <View 
+      style ={styles.container}
+    > 
+       <Stack.Navigator>
+        <Stack.Screen name="loadingScreen" component={Intro} 
+        options={{...myOptions, headerShown: false, gestureEnabled: false, headerStyle: {backgroundColor: "#000", shadowColor: 'transparent'}}}/>
+        <Stack.Screen name="loginScreen" component={Login}
+        options={{...myOptions, headerShown: false, headerLeft: null, gestureEnabled: false, headerStyle: {backgroundColor: "#000", shadowColor: 'transparent'}}} />
+        <Stack.Screen name="registerScreen" component={Register}
+        options={{...myOptions, headerShown: false, gestureEnabled: false, headerStyle: {backgroundColor: "#000", shadowColor: 'transparent'}}}/>
+        <Stack.Screen name="mainScreen" component={Main}
+        options={{...myOptions, headerShown: false, gestureEnabled: false, headerStyle: {backgroundColor: "#000", shadowColor: 'transparent'}}}/>
+      </Stack.Navigator>
+      
     </View>
   );
 }
 
+//export the navigation
+export default ()=>{
+    return(
+      <NavigationContainer>
+        <App/>
+      </NavigationContainer>
+    )
+}
+
+//stylesheet for App() function
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    flex: 1
+  }
+})

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Button, Image, StyleSheet, KeyboardAvoidingView, Text, View, Alert, TextInput } from 'react-native';
+import {Button, Image, StyleSheet, KeyboardAvoidingView, Text, View, Alert, TextInput, Dimensions } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from "firebase"
-import logo from './assets/logo.png'
 import FireBase from './config/FireBase';
 
 export default class Register extends Component {
@@ -25,10 +24,10 @@ export default class Register extends Component {
         if(this.state.password.length < 7) {
                  Alert.alert("Please enter at least 7 characters");
                  return;
-             } else if(this.state.password.toString() != this.state.confirmPass.toString()) {
+             } else if(this.state.password.toString() != this.state.confirmPassword.toString()) {
                  Alert.alert("Passwords do not match. Please try again");
                  return;
-             } else if(this.state.name.toString() == '' || this.state.email.toString() == '' || this.state.password.toString() == '' || this.state.confirmPass.toString() == ''){
+             } else if(this.state.name.toString() == '' || this.state.email.toString() == '' || this.state.password.toString() == '' || this.state.confirmPassword.toString() == ''){
                  Alert.alert("Please fill in all missing values");
                  return;
              }
@@ -37,8 +36,15 @@ export default class Register extends Component {
                  .then(() => firebase.database().ref('Users/' + firebase.auth().currentUser.uid).child("Name: ").set({
                      name : Name
                  }))
-                 .then(() => this.props.navigation.navigate("infoScreen"))
+                 .then(() => this.props.navigation.navigate("mainScreen"))
                  .catch(error => {
+                    if (error.code === 'auth/email-already-in-use') {
+                        Alert.alert('That email address is already in use!');
+                      }
+                  
+                      if (error.code === 'auth/invalid-email') {
+                        Alert.alert('That email address is invalid!');
+                      }
                     console.log("error");
                     Alert.alert("Cannot Register user at the moment. Try again later.");
                  })
@@ -55,7 +61,7 @@ export default class Register extends Component {
                     style={{marginTop: 10}}
                     behavior="padding"
                 >
-                    <Image style={{marginTop: -height*0.1}}source={logo}></Image>
+                    <Text styles={{backgroundColor: '#BBE1FA'}}>Register</Text>
                 </KeyboardAvoidingView>
 
                 <TextInput style={styles.TextInput} 
@@ -108,3 +114,41 @@ export default class Register extends Component {
             )
         }
 }
+
+const {height, width} = Dimensions.get('window');
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#38C7E5',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    TextInput: {
+        backgroundColor: '#38C7E5',
+        paddingLeft: width * 0.08,
+        borderWidth: 1,
+        borderRadius: 35,
+        height: height * 0.065, 
+        width: width * 0.9, 
+        marginTop: height * 0.023
+    },
+    goToLogin: {
+        flex: 1,
+        alignContent: 'flex-end',
+        left: 0,
+      },
+    Login: {
+        alignItems: "center",
+        backgroundColor: "#333333",
+        padding: height * 0.016,
+        borderRadius: 60,
+        width: width * 0.9,
+        marginTop: height * 0.023
+    },
+    BottomView: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: height * 0.064
+      }
+});

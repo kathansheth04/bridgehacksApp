@@ -6,7 +6,8 @@ import {Button,
   View, 
   Alert, 
   TextInput, 
-  KeyboardAvoidingView} from 'react-native';
+  KeyboardAvoidingView,
+Dimensions} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase'
 import FireBase from './config/FireBase';
@@ -30,6 +31,7 @@ export default class Login extends Component {
         loginAction = () => {
             firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
+              this.props.navig.navigate("")
                 console.log("user signed in!");
             }).catch(error => {
                 if(error.code === 'auth/email-already-in-use') {
@@ -56,7 +58,7 @@ export default class Login extends Component {
                         })()
                     }
                   >
-                    
+                    <Text>Recipe Dictionary</Text>
                   </KeyboardAvoidingView>
                   <TextInput 
                     style={styles.Email}
@@ -90,4 +92,49 @@ export default class Login extends Component {
             }
 
 }
+const {height, width} = Dimensions.get('window');
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+    alignItems: 'center',
+  },
+  Email: {
+    backgroundColor: '#38C7E5',
+    paddingLeft: width * 0.08,
+    borderWidth: 1,
+    borderRadius: 35,
+    height: height * 0.065, 
+    width: width * 0.9, 
+    marginTop: height * 0.023
+  },
+  password: {
+    backgroundColor: '#38C7E5',
+    paddingLeft: width * 0.08,
+    borderWidth: 1,
+    borderRadius: 35,
+    height: height * 0.065, 
+    width: width * 0.9, 
+    marginTop: height * 0.023
+  },
+  Login: {
+    alignItems: "center",
+    backgroundColor: "#333333",
+    padding: height * 0.016,
+    borderRadius: 60,
+    width: width * 0.9,
+    marginTop: height * 0.023
+  },
+  BottomView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: height * 0.064
+  },
+  createAccount: {
+    marginBottom: height * 0.04
+
+  }
+});
   
