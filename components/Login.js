@@ -58,13 +58,13 @@ export default class Login extends Component {
                         })()
                     }
                   >
-                    <Text>Recipe Dictionary</Text>
+                    <Text style={styles.TextHeaders}>Login</Text>
                   </KeyboardAvoidingView>
                   <TextInput 
                     style={styles.Email}
                     onChangeText={email => this.setState({ email })}
                     placeholder = "Email"
-                    placeholderTextColor="#505050"
+                    placeholderTextColor="#BBE1FA"
                     autoCapitalize='none'
                   />
                   <TextInput style={styles.password}
@@ -72,11 +72,11 @@ export default class Login extends Component {
                     onChangeText={password => this.setState({ password })}
                     placeholder = "Password" 
                     autoCapitalize='none'
-                    placeholderTextColor="#505050"
+                    placeholderTextColor="#BBE1FA"
                   />
         
                   <TouchableOpacity style={styles.Login}  onPress={()=> {this.loginAction()}}>
-                    <Text style={{fontSize: 24, color: "#fff"}}>Login</Text>
+                    <Text style={{fontSize: 24, color: "#BBE1FA"}}>Login</Text>
                   </TouchableOpacity>
                   </KeyboardAvoidingView>
                   <KeyboardAvoidingView style={styles.BottomView}>
@@ -84,7 +84,7 @@ export default class Login extends Component {
                                 style={styles.createAccount}
                                 onPress={()=> {this.props.navigation.navigate("registerScreen")}}
                                 >
-                                <Text>Don't have an account? Sign Up!</Text>
+                                <Text style={{color: '#BBE1FA'}}>Don't have an account? Sign Up!</Text>
                             </TouchableOpacity>
                         </KeyboardAvoidingView>
                     </KeyboardAvoidingView> 
@@ -97,11 +97,17 @@ const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#1B262C',
     alignItems: 'center',
+    justifyContent: 'center'
   },
+  TextHeaders: {
+    backgroundColor: '#1B262C', 
+    color: '#BBE1FA',
+    fontSize: 60
+},
   Email: {
-    backgroundColor: '#38C7E5',
+    backgroundColor: '#1B262C',
     paddingLeft: width * 0.08,
     borderWidth: 1,
     borderRadius: 35,
@@ -110,7 +116,7 @@ const styles = StyleSheet.create({
     marginTop: height * 0.023
   },
   password: {
-    backgroundColor: '#38C7E5',
+    backgroundColor: '#1B262C',
     paddingLeft: width * 0.08,
     borderWidth: 1,
     borderRadius: 35,
@@ -120,7 +126,7 @@ const styles = StyleSheet.create({
   },
   Login: {
     alignItems: "center",
-    backgroundColor: "#333333",
+    backgroundColor: "#2c2f33",
     padding: height * 0.016,
     borderRadius: 60,
     width: width * 0.9,
@@ -134,7 +140,6 @@ const styles = StyleSheet.create({
   },
   createAccount: {
     marginBottom: height * 0.04
-
   }
 });
   

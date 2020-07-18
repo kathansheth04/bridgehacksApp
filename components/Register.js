@@ -38,13 +38,6 @@ export default class Register extends Component {
                  }))
                  .then(() => this.props.navigation.navigate("mainScreen"))
                  .catch(error => {
-                    if (error.code === 'auth/email-already-in-use') {
-                        Alert.alert('That email address is already in use!');
-                      }
-                  
-                      if (error.code === 'auth/invalid-email') {
-                        Alert.alert('That email address is invalid!');
-                      }
                     console.log("error");
                     Alert.alert("Cannot Register user at the moment. Try again later.");
                  })
@@ -61,7 +54,7 @@ export default class Register extends Component {
                     style={{marginTop: 10}}
                     behavior="padding"
                 >
-                    <Text styles={{backgroundColor: '#BBE1FA'}}>Register</Text>
+                    <Text></Text>
                 </KeyboardAvoidingView>
 
                 <TextInput style={styles.TextInput} 
@@ -107,7 +100,7 @@ export default class Register extends Component {
                         style={styles.createAccount}
                         onPress={()=> {this.props.navigation.navigate("loginScreen")}}
                         >
-                        <Text>Already have an account? Sign in</Text>
+                        <Text style={{color: '#fb5607'}}>Already have an account? Sign in</Text>
                     </TouchableOpacity>
                 </KeyboardAvoidingView>
             </KeyboardAvoidingView>
@@ -119,12 +112,12 @@ const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#38C7E5',
+        backgroundColor: '#ffffff',
         alignItems: 'center',
         justifyContent: 'center'
     },
     TextInput: {
-        backgroundColor: '#38C7E5',
+        backgroundColor: '#ffffff',
         paddingLeft: width * 0.08,
         borderWidth: 1,
         borderRadius: 35,
@@ -139,7 +132,7 @@ const styles = StyleSheet.create({
       },
     Login: {
         alignItems: "center",
-        backgroundColor: "#333333",
+        backgroundColor: "#dc2f02",
         padding: height * 0.016,
         borderRadius: 60,
         width: width * 0.9,
@@ -150,5 +143,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         position: 'absolute',
         bottom: height * 0.064
-      }
+      },
+      
 });
