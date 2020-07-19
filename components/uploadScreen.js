@@ -14,6 +14,7 @@ const options = {
       path: 'images',
     },
   };
+  const [selectedImage, setSelectedImage] = ''
 export default class uploadScreen extends Component {
     constructor(props) {
         super(props);
@@ -23,7 +24,41 @@ export default class uploadScreen extends Component {
             firebase.initializeApp(FireBase.config);
           }
           
-    }    
+    }
+
+
+    getImage() {
+      firebase.storage().ref().child('Images').getDownloadURL()
+      .then(function(url) {
+        this.setState({uri: url})
+        if(uri === '') {
+          console.log(null)
+        } else {
+          console.log(url)
+        }
+      }).catch((error) => {
+        switch (error.code) {
+          case 'storage/object-not-found':
+            // File doesn't exist
+            break;
+      
+          case 'storage/unauthorized':
+            // User doesn't have permission to access the object
+            break;
+      
+          case 'storage/canceled':
+            // User canceled the upload
+            break;
+      
+      
+          case 'storage/unknown':
+            // Unknown error occurred, inspect the server response
+            break;
+        }
+      
+      });
+      
+    }
 
     openImagePickerAsync = async () => {
       let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
@@ -41,11 +76,12 @@ export default class uploadScreen extends Component {
         firebase
         .storage()
         .ref()
-        .child("Images")
+        .child('Images')
         .put(blob)
         .then((snapshot) => {
             //You can check the image is now uploaded in the storage bucket
-            console.log(`${this.state.localUri} has been successfully uploaded.`);
+            this.state.uri = pickerResult.uri
+            console.log(`${this.state.uri} has been successfully uploaded.`);
         })
         .catch((e) => console.log('uploading image error => ', e));
       }
@@ -55,7 +91,7 @@ export default class uploadScreen extends Component {
     
     render() {
         return (
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <View style={styles.container}>
                 <TouchableOpacity 
                 style={{justifyContent: 'center', alignItems: 'center'}} 
                 onPress={() => this.openImagePickerAsync()}>
@@ -63,10 +99,18 @@ export default class uploadScreen extends Component {
                     Hello
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{justifyContent: 'center', alignItems: 'center'}}>
-                  <Text>World</Text>
-                </TouchableOpacity>
+              {/*<Text onPress={() => this.getImage()}>{'\n'}click here</Text>*/}
+              <Image source={{uri: this.state.uri}}/>
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center', 
+    alignItems: 'center',
+    flex: 1,
+    backgroundColor: '#fff'
+  }
+})

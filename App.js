@@ -39,9 +39,9 @@ function tabNavigator() {
           iconName = 'ios-apps'
         } else if (route.name === 'Settings') {
           iconName = 'ios-options'
-        } else if (route.name === 'Info') {
-          iconName = 'ios-wallet'
-        } 
+        }  else if (route.name === 'Marketplace') {
+          iconName = 'ios-globe'
+        }
 
         // You can return any component that you like here!
         return <Ionicons name={iconName} size={20} color={color} />;
