@@ -11,6 +11,22 @@ export default class Main extends Component {
         this.arrayholder = [];
 
       }
+      getImage(props) {
+        var indexNum = props.indexNum;
+        if(parseInt(indexNum, 10)%8 === 0) {
+          return <Image style={styles.gridItemImage}source={require('./assets/foods/mainCourses/mainCourse5.jpg')}/>
+        } else if(parseInt(indexNum, 10)%4 === 0) {
+          return <Image style={styles.gridItemImage}source={require('./assets/foods/appetizers/appetizer4.jpg')}/>
+        } else if(parseInt(indexNum, 10)%3 === 0) {
+          return <Image style={styles.gridItemImage}source={require('./assets/foods/soups/soup3.jpg')}/>
+        } else if(parseInt(indexNum, 10)%7 === 0) {
+          return <Image style={styles.gridItemImage}source={require('./assets/foods/mainCourses/mainCourse2.jpg')}/>
+        } else if(parseInt(indexNum, 10)%2 === 0) {
+          return <Image style={styles.gridItemImage}source={require('./assets/main-course.jpeg')}/>
+        } else {
+          return <Image style={styles.gridItemImage}source={require('./assets/foods/salads/salad1.jpg')}/>
+        }
+      }
       componentDidMount() {
             return fetch('http://webknox.com/api/recipes/search?number=10000&apiKey=c9f71a6be7174d85ae404ae2a9cb7e39')
             .then(response => response.json())
@@ -85,11 +101,11 @@ export default class Main extends Component {
                 data={this.state.dataSource}
                 ItemSeparatorComponent={this.ListViewItemSeparator}
                 //Item Separator View
-                renderItem={({ item }) => (
+                renderItem={({ item, index }) => (
                     // Single Comes here which will be repeatative for the FlatListItems
                     <View style={{ flexDirection: 'row'}}>
                         <View style={styles.leftContainer}>
-                            <Image style={styles.gridItemImage}source={require('./assets/foods/mainCourses/mainCourse1.jpg')}/>
+                        <this.getImage indexNum={index}/>
                         </View>
                         <View style={{flexDirection: 'column', justifyContent: 'center', paddingRight: 110, flexWrap: 'wrap'}}>
                             <View style={styles.rightContainer1}>
@@ -153,6 +169,7 @@ export default class Main extends Component {
             flex: 1,
             fontSize: 20,
             marginTop: 5,
+            color: '#bf6b6b',
             paddingRight: 50,
             alignItems: 'flex-start',
             justifyContent: 'center'
@@ -161,6 +178,7 @@ export default class Main extends Component {
             flexDirection: 'row',
             flexWrap: 'wrap',
             flex: 1,
+            color: '#d69b67',
             fontSize: 16,
             marginTop: 5,
             alignItems: 'flex-start',
