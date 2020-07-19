@@ -81,19 +81,6 @@ export default class Main extends Component {
         return (
           //ListView to show with textinput used as search bar
           <View style={styles.container}>
-              
-              <Header style={{backgroundColor: '#fff'}}>
-                  <Left>
-                      {/* nothing */}
-                  </Left>
-                  <Body>
-                      <Title>Trending</Title>
-                  </Body>
-                  <Right>
-                      <Icon name="search" onPress={() => this.props.navigation.navigate("searchScreen")}/>
-                  </Right>
-                  
-              </Header>
                 <FlatList
                 data={this.state.dataSource}
                 ItemSeparatorComponent={this.ListViewItemSeparator}
@@ -122,8 +109,7 @@ export default class Main extends Component {
         );
       }
     }
-    //<Text onPress={() => Linking.openURL(item.sourceUrl)} style={styles.gridItemText}>{item.sourceUrl}</Text>
-
+    
 
     const styles = StyleSheet.create({
       container: {

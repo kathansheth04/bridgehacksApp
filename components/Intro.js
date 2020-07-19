@@ -19,7 +19,7 @@ export default class Intro extends Component {
       firebase.auth().onAuthStateChanged((user)=> {
         //if user is logged in
         if(user){
-            this.props.navigation.navigate('mainScreen');
+            this.props.navigation.navigate('main');
           //if the user is not logged in, take the user to the login screen where they can login  
         }else {
           setTimeout(() => {

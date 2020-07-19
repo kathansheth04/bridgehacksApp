@@ -1,39 +1,146 @@
 import React, {Component} from 'react';
-import {FlatList, Platform, StyleSheet, ActivityIndicator, Text, View, Alert, TextInput } from 'react-native';
-import {SearchBar} from 'react-native-elements'
+import {View, TouchableOpacity, ImageBackground, Text, StyleSheet } from 'react-native';
+
 
 export default class Search extends Component {
     constructor(props) {
         super(props);
-        //setting default state
-        this.state = { isLoading: true, search: ''};
-        this.arrayholder = [];
-
       }
-      updateSearch = (search) => {
-        this.setState({ search });
-      };
-      search = text => {
-        console.log(text);
-      };
-      clear = () => {
-        this.search.clear();
-      };
     render() {
         return (
-            <View>
-                <SearchBar
-                    round
-                    searchIcon={{ size: 24 }}
-                    showLoading="True"
-                    onClear={text => this.SearchFilterFunction('')}
-                    cancelButtonTitle="cancel"
-                    placeholder="Type Here..."
-                    lightTheme="True"
-                    onChangeText={this.updateSearch}
-                    value={this.state.search}
+            <View style={styles.container}>
+                <Text style={{fontSize: 40, marginBottom: 100}}>Dashboard</Text>
+                <View style={{flexDirection: 'row'}}>
+                    <TouchableOpacity
+                        style={{
+                        backgroundColor: '#fff',
+                        height: 125,
+                        width: 125,
+                        position: 'relative',
+                        borderRadius: 30,
+                        marginRight: 50
+                    }}>
+                    <ImageBackground
+                        source={ require('./assets/main-course.jpeg') }
+                        style={styles.image}
                     />
+                    <View
+                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={styles.text}>Main Course</Text>
+                    </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={{
+                        backgroundColor: '#fff',
+                        height: 125,
+                        width: 125,
+                        position: 'relative',
+                        borderRadius: 30
+                    }}>
+                    <ImageBackground
+                        source={ require('./assets/dessert.jpg') }
+                        style={styles.image}
+                    />
+                    <View
+                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={styles.text}>Dessert</Text>
+                    </View>
+                    </TouchableOpacity>
+                </View>
+                
+                <View style={{flexDirection: 'row', padding: 30}}>
+                    <TouchableOpacity
+                        style={{
+                        backgroundColor: '#fff',
+                        height: 125,
+                        width: 125,
+                        position: 'relative',
+                        borderRadius: 30,
+                        marginRight: 50
+                    }}>
+                    <ImageBackground
+                        source={ require('./assets/appetizer.jpg') }
+                        style={styles.image}
+                    />
+                    <View
+                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={styles.text}>Appetizer</Text>
+                    </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={{
+                        backgroundColor: '#fff',
+                        height: 125,
+                        width: 125,
+                        position: 'relative',
+                        borderRadius: 30
+                    }}>
+                    <ImageBackground
+                        source={ require('./assets/salad.jpg') }
+                        style={styles.image}
+                    />
+                    <View
+                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={styles.text}>Salad</Text>
+                    </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={{flexDirection: 'row', marginBottom: 100}}>
+                    <TouchableOpacity
+                        style={{
+                        backgroundColor: '#fff',
+                        height: 125,
+                        width: 125,
+                        position: 'relative',
+                        marginRight: 50
+                    }}>
+                    <ImageBackground
+                        source={ require('./assets/soup.jpg') }
+                        style={styles.image}
+                    />
+                    <View
+                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={styles.text}>Soups</Text>
+                    </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={{
+                        backgroundColor: '#fff',
+                        height: 125,
+                        width: 125,
+                        position: 'relative',
+                        borderRadius: 30
+                    }}>
+                    <ImageBackground
+                        source={ require('./assets/trending.jpg') }
+                        style={styles.image}
+                    />
+                    <View
+                        style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={styles.text}>Trending</Text>
+                    </View>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        padding: 30
+    },
+    image: {
+        height: 125,
+        width: 125,
+        opacity: 0.5,
+        position: 'absolute',
+    },
+    text: { 
+        fontSize: 20
+    }
+})
