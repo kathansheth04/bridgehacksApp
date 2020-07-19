@@ -11,7 +11,8 @@ import Soup from './components/Soup'
 import Salad from './components/Salad'
 import Appetizer from './components/Appetizer'
 import Dessert from './components/Dessert'
-import uploadScreen from './components/uploadScreen'
+import UploadScreen from './components/UploadScreen'
+import ImagePickerExample from './components/ImagePickerExample'
 import {createStackNavigator} from "@react-navigation/stack"
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
@@ -39,7 +40,7 @@ function tabNavigator() {
           iconName = 'ios-apps'
         } else if (route.name === 'Settings') {
           iconName = 'ios-options'
-        }  else if (route.name === 'Marketplace') {
+        }  else if (route.name === 'Community') {
           iconName = 'ios-globe'
         }
 
@@ -61,7 +62,7 @@ function tabNavigator() {
         }
       }}>
       <Tab.Screen name="Dashboard" component={Search}/>
-      <Tab.Screen name="Marketplace" component={uploadScreen}/>
+      <Tab.Screen name="Community" component={UploadScreen}/>
       <Tab.Screen name="Settings" component={Settings}/>
     </Tab.Navigator>
   )

@@ -59,7 +59,7 @@ export default class Login extends Component {
                         })()
                     }
                   >
-                    <Image source={logo}></Image>
+                    <Image style={{height: 225, width: 225}} source={logo}></Image>
                   </KeyboardAvoidingView>
                   <TextInput 
                     style={styles.Email}
@@ -77,7 +77,7 @@ export default class Login extends Component {
                   />
         
                   <TouchableOpacity style={styles.Login}  onPress={()=> {this.loginAction()}}>
-                    <Text style={{fontSize: 24, color: "#000"}}>Login</Text>
+                    <Text style={{fontSize: 24, color: "#fff"}}>Login</Text>
                   </TouchableOpacity>
                   </KeyboardAvoidingView>
                   <KeyboardAvoidingView style={styles.BottomView}>
@@ -131,7 +131,8 @@ const styles = StyleSheet.create({
     padding: height * 0.016,
     borderRadius: 60,
     width: width * 0.9,
-    marginTop: height * 0.023
+    marginTop: height * 0.023,
+    marginBottom: height * 0.2
   },
   BottomView: {
     justifyContent: 'center',
@@ -140,7 +141,7 @@ const styles = StyleSheet.create({
     bottom: height * 0.064
   },
   createAccount: {
-    marginBottom: height * 0.04
+    marginBottom: height * 0.04,
   }
 });
   
