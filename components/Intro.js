@@ -36,10 +36,10 @@ export default class Intro extends Component {
       return (
           <View style={styles.container}>
             
-            <Image source={require('./assets/logo.png')}/>
+            <Image style={{width: 250, height: 250}}source={require('./assets/logo.png')}/>
             {/*loading bar*/}
             <View style={styles.ActivityIndicator}>
-              <ActivityIndicator size="small" color="#333333"/>
+              <ActivityIndicator size="small" color="#bf6b6b"/>
             </View>
           </View>
       );

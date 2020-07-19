@@ -47,7 +47,7 @@ function tabNavigator() {
       },
     })}
       tabBarOptions={{
-        activeTintColor: '#d69b67',
+        activeTintColor: '#bf6b6b',
         inactiveTintColor: '#000',
         style: {
           backgroundColor: '#fff',
@@ -79,15 +79,15 @@ function App(){
         <Stack.Screen name="mainScreen" component={Main}
         options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
         <Stack.Screen name="Appetizer" component={Appetizer}
-        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        options={{...myOptions, headerTitle: "Appetizer", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
         <Stack.Screen name="Soup" component={Soup}
-        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        options={{...myOptions, headerTitle: "Soups", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
         <Stack.Screen name="MainCourse" component={MainCourse}
-        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        options={{...myOptions, headerTitle: "Main Course", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
         <Stack.Screen name="Salad" component={Salad}
-        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        options={{...myOptions, headerTitle: "Salad", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
         <Stack.Screen name="Dessert" component={Dessert}
-        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        options={{...myOptions, headerTitle: "Dessert", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
         <Stack.Screen name="main" component={tabNavigator}
         options={{...myOptions, headerLeft: false, headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
       </Stack.Navigator>

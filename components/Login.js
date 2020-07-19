@@ -11,6 +11,7 @@ Dimensions} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase'
 import FireBase from './config/FireBase';
+import logo from './assets/logo.png'
 
 export default class Login extends Component {
     constructor(props){
@@ -58,13 +59,13 @@ export default class Login extends Component {
                         })()
                     }
                   >
-                    <Text style={styles.TextHeaders}>Login</Text>
+                    <Image source={logo}></Image>
                   </KeyboardAvoidingView>
                   <TextInput 
                     style={styles.Email}
                     onChangeText={email => this.setState({ email })}
                     placeholder = "Email"
-                    placeholderTextColor="#BBE1FA"
+                    placeholderTextColor="#2c2f33"
                     autoCapitalize='none'
                   />
                   <TextInput style={styles.password}
@@ -72,11 +73,11 @@ export default class Login extends Component {
                     onChangeText={password => this.setState({ password })}
                     placeholder = "Password" 
                     autoCapitalize='none'
-                    placeholderTextColor="#BBE1FA"
+                    placeholderTextColor="#2c2f33"
                   />
         
                   <TouchableOpacity style={styles.Login}  onPress={()=> {this.loginAction()}}>
-                    <Text style={{fontSize: 24, color: "#BBE1FA"}}>Login</Text>
+                    <Text style={{fontSize: 24, color: "#000"}}>Login</Text>
                   </TouchableOpacity>
                   </KeyboardAvoidingView>
                   <KeyboardAvoidingView style={styles.BottomView}>
@@ -84,7 +85,7 @@ export default class Login extends Component {
                                 style={styles.createAccount}
                                 onPress={()=> {this.props.navigation.navigate("registerScreen")}}
                                 >
-                                <Text style={{color: '#BBE1FA'}}>Don't have an account? Sign Up!</Text>
+                                <Text style={{color: '#d69b67'}}>Don't have an account? Sign Up!</Text>
                             </TouchableOpacity>
                         </KeyboardAvoidingView>
                     </KeyboardAvoidingView> 
@@ -97,17 +98,17 @@ const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1B262C',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
   },
   TextHeaders: {
-    backgroundColor: '#1B262C', 
-    color: '#BBE1FA',
-    fontSize: 60
+    color: '#d69b67',
+    fontSize: 60,
+    paddingBottom: 100
 },
   Email: {
-    backgroundColor: '#1B262C',
+    backgroundColor: '#fff',
     paddingLeft: width * 0.08,
     borderWidth: 1,
     borderRadius: 35,
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     marginTop: height * 0.023
   },
   password: {
-    backgroundColor: '#1B262C',
+    backgroundColor: '#fff',
     paddingLeft: width * 0.08,
     borderWidth: 1,
     borderRadius: 35,
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
   },
   Login: {
     alignItems: "center",
-    backgroundColor: "#2c2f33",
+    backgroundColor: "#bf6b6b",
     padding: height * 0.016,
     borderRadius: 60,
     width: width * 0.9,

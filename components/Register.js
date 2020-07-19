@@ -3,6 +3,7 @@ import {Button, Image, StyleSheet, KeyboardAvoidingView, Text, View, Alert, Text
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from "firebase"
 import FireBase from './config/FireBase';
+import logo from './assets/logo.png'
 
 export default class Register extends Component {
     constructor(props){
@@ -54,24 +55,24 @@ export default class Register extends Component {
                     style={{marginTop: 10}}
                     behavior="padding"
                 >
-                    <Text></Text>
+                    <Image style={{marginTop: -height*0.1}}source={logo}></Image>
                 </KeyboardAvoidingView>
 
                 <TextInput style={styles.TextInput} 
                     onChangeText={name => this.setState({name})}
                     placeholder="Name"
-                    placeholderTextColor="#505050"
+                    placeholderTextColor="#2c2f33"
                 />
                 <TextInput style={styles.TextInput} 
                     onChangeText={email => this.setState({ email })}
                     placeholder="Email" 
-                    placeholderTextColor="#505050"
+                    placeholderTextColor="#2c2f33"
                     autoCapitalize='none'
                 />
                 <TextInput style={styles.TextInput} 
                     onChangeText={password => this.setState({ password })}
                     placeholder="Password" 
-                    placeholderTextColor="#505050"
+                    placeholderTextColor="#2c2f33"
                     secureTextEntry={true}
                     autoCapitalize='none'
                 />
@@ -79,7 +80,7 @@ export default class Register extends Component {
                 <TextInput style={styles.TextInput} 
                     onChangeText={confirmPassword => this.setState({ confirmPassword })}
                     placeholder="Confirm Password" 
-                    placeholderTextColor="#505050"
+                    placeholderTextColor="#2c2f33"
                     secureTextEntry={true}
                     autoCapitalize='none'
                 />
@@ -100,7 +101,7 @@ export default class Register extends Component {
                         style={styles.createAccount}
                         onPress={()=> {this.props.navigation.navigate("loginScreen")}}
                         >
-                        <Text style={{color: '#fb5607'}}>Already have an account? Sign in</Text>
+                        <Text style={{color: '#d69b67'}}>Already have an account? Sign in</Text>
                     </TouchableOpacity>
                 </KeyboardAvoidingView>
             </KeyboardAvoidingView>
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
       },
     Login: {
         alignItems: "center",
-        backgroundColor: "#dc2f02",
+        backgroundColor: "#bf6b6b",
         padding: height * 0.016,
         borderRadius: 60,
         width: width * 0.9,

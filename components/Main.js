@@ -89,7 +89,7 @@ export default class Main extends Component {
                     // Single Comes here which will be repeatative for the FlatListItems
                     <View style={{ flexDirection: 'row'}}>
                         <View style={styles.leftContainer}>
-                            <Image style={styles.gridItemImage}source={require('./assets/mainCourse.jpg')}/>
+                            <Image style={styles.gridItemImage}source={require('./assets/foods/mainCourses/mainCourse1.jpg')}/>
                         </View>
                         <View style={{flexDirection: 'column', justifyContent: 'center', paddingRight: 110, flexWrap: 'wrap'}}>
                             <View style={styles.rightContainer1}>

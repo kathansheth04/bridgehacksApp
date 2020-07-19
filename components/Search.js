@@ -9,7 +9,7 @@ export default class Search extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={{fontSize: 40, marginBottom: 100}}>Dashboard</Text>
+                <Text style={{fontSize: 40, marginBottom: 100, color: '#d69b67'}}>Dashboard</Text>
                 <View style={{flexDirection: 'row'}}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('MainCourse')}
                         style={{
@@ -85,14 +85,15 @@ export default class Search extends Component {
                     </View>
                     </TouchableOpacity>
                 </View>
-                <View style={{flexDirection: 'row', marginBottom: 100}}>
+                <View style={{flexDirection: 'row', marginBottom: 150}}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Soup')}
                         style={{
                         backgroundColor: '#fff',
                         height: 125,
                         width: 125,
                         position: 'relative',
-                        marginRight: 50
+                        marginRight: 50,
+                        borderRadius: 30
                     }}>
                     <ImageBackground
                         source={ require('./assets/soup.jpg') }
@@ -140,8 +141,9 @@ const styles = StyleSheet.create({
         width: 125,
         opacity: 0.5,
         position: 'absolute',
+        borderRadius: 30
     },
-    text: { 
+    text: {
         fontSize: 20
     }
 })
