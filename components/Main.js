@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FlatList, Image, Linking, StyleSheet, ActivityIndicator, Text, View, Dimensions, TextInput } from 'react-native';
+import {FlatList, Image, Linking, StyleSheet, ActivityIndicator, Text, View, Dimensions, TextInput, TouchableOpacity } from 'react-native';
 import {Header, Body, Right, Left, Icon} from 'native-base'
 import { Title } from 'react-native-paper';
 
@@ -106,7 +106,9 @@ export default class Main extends Component {
                         </View>
                         <View style={{flexDirection: 'column', justifyContent: 'center', paddingRight: 110, flexWrap: 'wrap'}}>
                             <View style={styles.rightContainer1}>
-                                <Text style={styles.gridItemText1}>{item.title}</Text>
+                                <TouchableOpacity onPress={() => Linking.openURL(item.sourceUrl)} >
+                                <Text style={styles.gridItemText1}>{item.title.toString()}</Text>
+                                </TouchableOpacity>
                             </View>
                             <View style={styles.rightContainer2}>
                                 <Text style={styles.gridItemText2}>{item.readyInMinutes} {'mins'}</Text>

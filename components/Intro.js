@@ -36,8 +36,7 @@ export default class Intro extends Component {
       return (
           <View style={styles.container}>
             
-            <Text>Welcome to Recipe Dictionary</Text>
-            <Text>recipes all in one place</Text>
+            <Image source={require('./assets/Logo.png')}/>
             {/*loading bar*/}
             <View style={styles.ActivityIndicator}>
               <ActivityIndicator size="small" color="#333333"/>
@@ -52,7 +51,7 @@ export default class Intro extends Component {
   const styles = StyleSheet.create({
     container:{
       flex: 1,
-      backgroundColor: '#38C7E5', //main blue color of the logo and the overall theme
+      backgroundColor: '#ffffff', 
       alignItems: 'center',
       justifyContent: 'center',
     },
