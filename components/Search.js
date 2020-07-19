@@ -11,7 +11,7 @@ export default class Search extends Component {
             <View style={styles.container}>
                 <Text style={{fontSize: 40, marginBottom: 100}}>Dashboard</Text>
                 <View style={{flexDirection: 'row'}}>
-                    <TouchableOpacity
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('MainCourse')}
                         style={{
                         backgroundColor: '#fff',
                         height: 125,
@@ -26,10 +26,10 @@ export default class Search extends Component {
                     />
                     <View
                         style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        <Text style={styles.text}>Main Course</Text>
+                        <Text style={styles.text}>  Main {'\n'} Course</Text>
                     </View>
                     </TouchableOpacity>
-                    <TouchableOpacity
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Dessert')}
                         style={{
                         backgroundColor: '#fff',
                         height: 125,
@@ -49,7 +49,7 @@ export default class Search extends Component {
                 </View>
                 
                 <View style={{flexDirection: 'row', padding: 30}}>
-                    <TouchableOpacity
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Appetizer')}
                         style={{
                         backgroundColor: '#fff',
                         height: 125,
@@ -67,7 +67,7 @@ export default class Search extends Component {
                         <Text style={styles.text}>Appetizer</Text>
                     </View>
                     </TouchableOpacity>
-                    <TouchableOpacity
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Salad')}
                         style={{
                         backgroundColor: '#fff',
                         height: 125,
@@ -86,7 +86,7 @@ export default class Search extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{flexDirection: 'row', marginBottom: 100}}>
-                    <TouchableOpacity
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Soup')}
                         style={{
                         backgroundColor: '#fff',
                         height: 125,
@@ -103,7 +103,8 @@ export default class Search extends Component {
                         <Text style={styles.text}>Soups</Text>
                     </View>
                     </TouchableOpacity>
-                    <TouchableOpacity
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('mainScreen')}
+                        
                         style={{
                         backgroundColor: '#fff',
                         height: 125,

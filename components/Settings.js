@@ -9,7 +9,7 @@ import {
 import { ListItem } from 'native-base';
 import avatar from './assets/avatar.png';
 import * as firebase from "firebase"
-import FireBase from '../config/FireBase';
+import FireBase from './config/FireBase';
 
 
 export default class Settings extends Component {
@@ -38,7 +38,7 @@ render() {
         
         <ListItem style={styles.ListItem}>         
           <Text style={
-            { color: '#FFFFFF', fontSize: 15, marginTop: 15 }}>
+            { color: '#000', fontSize: 15, marginTop: 15 }}>
                 Change your username
           </Text>   
         </ListItem>
@@ -75,13 +75,13 @@ const {
 const styles = StyleSheet.create({
 container: {
   flex: 1,
-  backgroundColor: '#2c2f33',
+  backgroundColor: '#fff',
   alignItems: 'center',
   justifyContent:'center'
   
 },
 settings: {
-  color: '#FFFFFF',
+  color: '#000',
   fontSize: 15,
   marginTop: height * 0.03
 },
@@ -95,9 +95,9 @@ card1: {
   elevation: 3, 
   height: height * 0.28,
   width: width * 0.85,
-  backgroundColor: '#1f1f1f',
+  backgroundColor: '#e5e9f0',
   shadowOffset: {wdith: 3, height: 1},
-  shadowColor: '#000000',
+  shadowColor: '#e5e9f0',
   shadowOpacity: 0.3,
   shadowRadius: 2,
   alignItems: 'center',

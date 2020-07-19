@@ -5,6 +5,12 @@ import Intro from './components/Intro'
 import Register from './components/Register'
 import Main from './components/Main'
 import Search from './components/Search'
+import Settings from './components/Settings'
+import MainCourse from './components/MainCourse'
+import Soup from './components/Soup'
+import Salad from './components/Salad'
+import Appetizer from './components/Appetizer'
+import Dessert from './components/Dessert'
 import {createStackNavigator} from "@react-navigation/stack"
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
@@ -54,6 +60,7 @@ function tabNavigator() {
         }
       }}>
       <Tab.Screen name="Dashboard" component={Search}/>
+      <Tab.Screen name="Settings" component={Settings}/>
     </Tab.Navigator>
   )
 }
@@ -70,6 +77,16 @@ function App(){
         <Stack.Screen name="registerScreen" component={Register}
         options={{...myOptions, headerShown: false, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
         <Stack.Screen name="mainScreen" component={Main}
+        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        <Stack.Screen name="Appetizer" component={Appetizer}
+        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        <Stack.Screen name="Soup" component={Soup}
+        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        <Stack.Screen name="MainCourse" component={MainCourse}
+        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        <Stack.Screen name="Salad" component={Salad}
+        options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
+        <Stack.Screen name="Dessert" component={Dessert}
         options={{...myOptions, headerTitle: "Trending", headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
         <Stack.Screen name="main" component={tabNavigator}
         options={{...myOptions, headerLeft: false, headerShown: true, gestureEnabled: false, headerStyle: {backgroundColor: "#fff", shadowColor: 'transparent'}}}/>
