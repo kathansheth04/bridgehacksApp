@@ -12,7 +12,6 @@ import Salad from './components/Salad'
 import Appetizer from './components/Appetizer'
 import Dessert from './components/Dessert'
 import UploadScreen from './components/UploadScreen'
-import ImagePickerExample from './components/ImagePickerExample'
 import {createStackNavigator} from "@react-navigation/stack"
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
