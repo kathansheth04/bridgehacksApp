@@ -11,6 +11,7 @@ import Soup from './components/Soup'
 import Salad from './components/Salad'
 import Appetizer from './components/Appetizer'
 import Dessert from './components/Dessert'
+import uploadScreen from './components/uploadScreen'
 import {createStackNavigator} from "@react-navigation/stack"
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
@@ -60,6 +61,7 @@ function tabNavigator() {
         }
       }}>
       <Tab.Screen name="Dashboard" component={Search}/>
+      <Tab.Screen name="Marketplace" component={uploadScreen}/>
       <Tab.Screen name="Settings" component={Settings}/>
     </Tab.Navigator>
   )
