@@ -104,50 +104,55 @@ export default class Main extends Component {
                         <View style={styles.leftContainer}>
                             <Image style={styles.gridItemImage}source={require('./assets/mainCourse.jpg')}/>
                         </View>
-                    <View style={styles.rightContainer}>
-                        <Text style={styles.gridItemText1}>{item.title}</Text>
-                        <Text style={styles.gridItemText2}>{item.readyInMinutes} {'mins'}</Text>
-                    </View>
+                        <View style={{flexDirection: 'column', justifyContent: 'center', paddingRight: 110, flexWrap: 'wrap'}}>
+                            <View style={styles.rightContainer1}>
+                                <Text style={styles.gridItemText1}>{item.title}</Text>
+                            </View>
+                            <View style={styles.rightContainer2}>
+                                <Text style={styles.gridItemText2}>{item.readyInMinutes} {'mins'}</Text>
+                            </View>
+                        </View>
                     </View>
                 )}
-                enableEmptySections={true}
-                style={{ marginTop: 10 }}
                 keyExtractor={(item, index) => index.toString()}
                 />
           </View>
         );
       }
     }
-    //                        <Text onPress={() => Linking.openURL(item.sourceUrl)} style={styles.gridItemText}>{item.sourceUrl}</Text>
+    //<Text onPress={() => Linking.openURL(item.sourceUrl)} style={styles.gridItemText}>{item.sourceUrl}</Text>
 
-    const {height, width} = Dimensions.get('window');
 
     const styles = StyleSheet.create({
       container: {
         justifyContent: 'center',
         flex: 1,
         backgroundColor:'#fff',
-        marginTop: 10,
         paddingBottom: 20,
-        paddingLeft: 10
       },
       leftContainer: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems:'flex-start',
-        marginRight: 100,
+        justifyContent: 'flex-start',
+        alignItems:'center',
+        paddingRight: 100,
       },
-      rightContainer: {
+      rightContainer1: {
         flex: 1,
         flexWrap: 'wrap',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center'
     },
+    rightContainer2: {
+        flexWrap: 'wrap',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
         gridItemImage: {
-            justifyContent: 'flex-start',
-            alignSelf: 'flex-start',
+            justifyContent: 'center',
+            alignItems: 'center',
             paddingTop: 100,
             width: 100,
             height: 100,
@@ -160,6 +165,7 @@ export default class Main extends Component {
             flex: 1,
             fontSize: 20,
             marginTop: 5,
+            paddingRight: 50,
             alignItems: 'flex-start',
             justifyContent: 'center'
         },
