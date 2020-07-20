@@ -23,5 +23,5 @@ https://youtu.be/GedMCb-slEA
 
 # Team
 
-* Kathan Sheth (sheth.kathan@gmail.com)
+* Kathan Sheth (sheth.kathan04@gmail.com)
 * Shubham Sheth (sheth.shubham07@gmail.com)
