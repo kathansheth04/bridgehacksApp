@@ -9,10 +9,6 @@ Food Villa is a unique type of Application on iOS and Android devices that not o
 * Firebase Realtime Database used to store user information, like user's name
 * Firebase Storage to store images and retrieve them on the community-interaction screen
 
-# Video Demonstration of the App
-
-https://youtu.be/GedMCb-slEA
-
 # Development Environment and softwares Used
 
 * [Expo-cli](https://docs.expo.io/workflow/expo-cli/)
